@@ -14,14 +14,15 @@ import {
 } from '@nestjs/common';
 
 import { Response } from 'express';
-import { ParseIntPipe } from '../common/parse-int.pipe';
+import { ParseIntPipe } from '../../../common/parse-int.pipe';
 import { CreateProductDto, UpdateProductDto } from './../dtos/products.dtos';
 
 import { ProductsService } from './../services/products.service';
 
 @Controller('products')
 export class ProductsController {
-  constructor(private productsService: ProductsService) {}
+  // eslint-disable-next-line prettier/prettier
+  constructor(private productsService: ProductsService) { }
 
   @Get()
   getProducts(
