@@ -1,3 +1,4 @@
+// dtos of the products
 import { Module } from '@nestjs/common';
 
 import { CustomerController } from './controllers/customers.controller';
