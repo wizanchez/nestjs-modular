@@ -5,20 +5,24 @@ import {
   Post,
   Body,
   Put,
+  Inject,
   Delete,
   ParseIntPipe,
 } from '@nestjs/common';
 
 import { UsersService } from '../services/users.service';
 import { CreateUserDto, UpdateUserDto } from '../dtos/user.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Users')
 @Controller('users')
 export class UsersController {
   // eslint-disable-next-line prettier/prettier
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService, @Inject('API_KEY') private apiKey: string) { }
 
   @Get()
   findAll() {
+    console.log('apiKey', this.apiKey);
     return this.usersService.findAll();
   }
 

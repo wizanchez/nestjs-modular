@@ -3,11 +3,12 @@ import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  // eslint-disable-next-line prettier/prettier
+  constructor(private readonly appService: AppService) { }
 
   @Get()
   getHello(): string {
-    return 'Hola mundo!';
+    return this.appService.getHello();
   }
 
   @Get('nuevo')
